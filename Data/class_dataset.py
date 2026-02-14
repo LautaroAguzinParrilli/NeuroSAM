@@ -28,7 +28,7 @@ class MRIDataset(Dataset):
         img = self.crop_center(img, self.target_shape)
 
         # Normalización simple
-        img = (img - img.mean()) / img.std()
+        img = (img - img.mean()) / img.std() #z-score normalization
 
         # (C, D, H, W)
         img = torch.tensor(img).unsqueeze(0)

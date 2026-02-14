@@ -9,6 +9,7 @@ from Model.model import build_vit3d
 import torch.nn as nn
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.metrics import mean_absolute_error
 
 # Para separar el DataFrame en train, val y test
 from sklearn.model_selection import train_test_split
@@ -16,10 +17,10 @@ from sklearn.model_selection import train_test_split
 if __name__ == "__main__":
 
 # -------- data --------
-    df = pd.read_csv("Training/training_data.csv")  # Cambia la ruta al archivo CSV
+    df = pd.read_csv("training_data.csv")  # Cambia la ruta al archivo CSV
 
-    # Separar en train (70%), val (15%) y test (15%)
-    train_df, temp_df = train_test_split(df, test_size=0.3, random_state=42)
+    # Separar en train (80%), val (10%) y test (10%)
+    train_df, temp_df = train_test_split(df, test_size=0.2, random_state=42)
     val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
 
     # Extrae las listas de rutas y edades para cada set
@@ -38,36 +39,38 @@ if __name__ == "__main__":
         train_dataset,
         batch_size=16,
         shuffle=True,
-        num_workers=4
+        num_workers=8
     )
     val_loader = DataLoader(
         val_dataset,
         batch_size=16,
         shuffle=False,
-        num_workers=4
+        num_workers=8
     )
     test_loader = DataLoader(
         test_dataset,
         batch_size=16,
         shuffle=False,
-        num_workers=4
+        num_workers=8
     )
 
 # -------- model --------
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = build_vit3d().to(device)
+    model = torch.nn.DataParallel(build_vit3d()).to(device)
+    print(device)
 # -------- training --------
     criterion = nn.MSELoss()
     optimizer = torch.optim.AdamW(
-        model.parameters(),
+        model.parameters(),  
         lr=1e-4,
         weight_decay=1e-4
     )
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True)
     model.train()
-    num_epochs = 100
+    num_epochs = 200
 
     # Early stopping params
-    patience = 10  # Número de épocas sin mejora para detener
+    patience = 20  # Número de épocas sin mejora para detener
     best_val_loss = float('inf')
     epochs_no_improve = 0
     best_model_state = None
@@ -87,6 +90,11 @@ if __name__ == "__main__":
         model.train()
         train_loss = 0.0
         for imgs, ages in train_loader:
+            assert not torch.isnan(imgs).any(), "Hay NaN en las imágenes"
+            assert not torch.isinf(imgs).any(), "Hay Inf en las imágenes"
+            assert not torch.isnan(ages).any(), "Hay NaN en las edades"
+            assert not torch.isinf(ages).any(), "Hay Inf en las edades"
+    
             imgs = imgs.to(device)
             ages = ages.to(device).unsqueeze(1)
             preds = model(imgs)
@@ -121,6 +129,7 @@ if __name__ == "__main__":
         ax.autoscale_view()
         plt.draw()
         plt.pause(0.01)
+        scheduler.step(val_loss)
 
         print(f"Epoch {epoch+1} | Train Loss: {train_loss:.3f} | Val Loss: {val_loss:.3f}")
 
@@ -138,12 +147,14 @@ if __name__ == "__main__":
                 break
 
     plt.ioff()
-    plt.show()
+    plt.savefig("loss_plot.png")  
     torch.save(model.state_dict(), 'model.pth')
 
     # -------- Evaluación en el set de test --------
     model.eval()
     test_loss = 0.0
+    all_preds = []
+    all_ages = []   
     with torch.no_grad():
         for imgs, ages in test_loader:
             imgs = imgs.to(device)
@@ -151,7 +162,15 @@ if __name__ == "__main__":
             preds = model(imgs)
             loss = criterion(preds, ages)
             test_loss += loss.item() * imgs.size(0)
+            all_preds.append(preds.cpu())
+            all_ages.append(ages.cpu())
     test_loss /= len(test_loader.dataset)
-    print(f"Test Loss: {test_loss:.3f}")
+    # Calcular MAE
+    all_preds = torch.cat(all_preds).numpy()
+    all_ages = torch.cat(all_ages).numpy()
+    mae = mean_absolute_error(all_ages, all_preds)
+
+    print(f"Test Loss (MSE): {test_loss:.3f}")
+    print(f"Test MAE: {mae:.3f}")
 
     
