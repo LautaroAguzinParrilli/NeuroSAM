@@ -67,10 +67,10 @@ if __name__ == "__main__":
     )
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True)
     model.train()
-    num_epochs = 200
+    num_epochs = 130
 
     # Early stopping params
-    patience = 20  # Número de épocas sin mejora para detener
+    patience = 15  # Número de épocas sin mejora para detener
     best_val_loss = float('inf')
     epochs_no_improve = 0
     best_model_state = None

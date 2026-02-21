@@ -119,7 +119,6 @@ Path,Age
 /data/lautaro/quasiraw/007_S_6521_I1029013.nii.gz,66.0
 /data/lautaro/quasiraw/009_S_0751_I1025741.nii.gz,83.0
 /data/lautaro/quasiraw/009_S_0751_I1186516.nii.gz,84.0
-/data/lautaro/quasiraw/009_S_0751_I1485270.nii.gz,86.0
 /data/lautaro/quasiraw/009_S_0751_I876555.nii.gz,82.0
 /data/lautaro/quasiraw/009_S_4388_I880133.nii.gz,72.0
 /data/lautaro/quasiraw/009_S_4612_I1199414.nii.gz,76.0
@@ -630,7 +629,6 @@ Path,Age
 /data/lautaro/quasiraw/099_S_4076_I1528478.nii.gz,83.0
 /data/lautaro/quasiraw/099_S_4076_I1528479.nii.gz,83.0
 /data/lautaro/quasiraw/099_S_4076_I920975.nii.gz,79.0
-/data/lautaro/quasiraw/099_S_4086_I943534.nii.gz,88.0
 /data/lautaro/quasiraw/099_S_6016_I1212969.nii.gz,68.0
 /data/lautaro/quasiraw/099_S_6016_I1484260.nii.gz,70.0
 /data/lautaro/quasiraw/099_S_6016_I859714.nii.gz,66.0
@@ -784,8 +782,6 @@ Path,Age
 /data/lautaro/quasiraw/126_S_0680_I1280955.nii.gz,91.0
 /data/lautaro/quasiraw/126_S_0680_I1492716.nii.gz,93.0
 /data/lautaro/quasiraw/126_S_6559_I1038586.nii.gz,66.0
-/data/lautaro/quasiraw/126_S_6559_I1356105.nii.gz,68.0
-/data/lautaro/quasiraw/126_S_6559_I1509217.nii.gz,69.0
 /data/lautaro/quasiraw/127_S_0259_I1066589.nii.gz,83.0
 /data/lautaro/quasiraw/127_S_0259_I907414.nii.gz,82.0
 /data/lautaro/quasiraw/127_S_4148_I1185628.nii.gz,81.0
@@ -2716,7 +2712,6 @@ Path,Age
 /data/lautaro/quasiraw/sub-121315843872.nii.gz,34.0
 /data/lautaro/quasiraw/sub-121725487399.nii.gz,33.0
 /data/lautaro/quasiraw/sub-121738146757.nii.gz,25.0
-/data/lautaro/quasiraw/sub-121916223122.nii.gz,72.0
 /data/lautaro/quasiraw/sub-1220_ses-wave1.nii.gz,55.0
 /data/lautaro/quasiraw/sub-1220_ses-wave2.nii.gz,59.0
 /data/lautaro/quasiraw/sub-1220_ses-wave3.nii.gz,64.0
@@ -4757,7 +4752,6 @@ Path,Age
 /data/lautaro/quasiraw/sub-425788429649.nii.gz,23.0
 /data/lautaro/quasiraw/sub-425902114613.nii.gz,22.0
 /data/lautaro/quasiraw/sub-426132500518.nii.gz,19.0
-/data/lautaro/quasiraw/sub-426134424341.nii.gz,18.0
 /data/lautaro/quasiraw/sub-426162600454.nii.gz,19.0
 /data/lautaro/quasiraw/sub-426381896702.nii.gz,12.0
 /data/lautaro/quasiraw/sub-426538206069.nii.gz,25.0
@@ -8678,7 +8672,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds000222_sub-63.nii.gz,69.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds000222_sub-64.nii.gz,63.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds000222_sub-65.nii.gz,61.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004440_sub-47.nii.gz,10.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004440_sub-49.nii.gz,5.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004443_sub-01.nii.gz,46.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004443_sub-02.nii.gz,31.0
@@ -10451,7 +10444,7 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005899_sub-22.nii.gz,11.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006005_sub-08.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006010_sub-32.nii.gz,6.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-11.nii.gz,38.0
+/data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-13.nii.gz,39.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006092_sub-21.nii.gz,59.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006105_sub-28.nii.gz,36.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006211_sub-07.nii.gz,33.0
@@ -10579,9 +10572,7 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-55.nii.gz,41.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-57.nii.gz,34.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-59.nii.gz,32.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-61.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-66.nii.gz,30.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-67.nii.gz,35.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-68.nii.gz,38.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-71.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005216_sub-73.nii.gz,33.0
@@ -10783,7 +10774,7 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004327_sub-38.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004331_sub-29.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004440_sub-03.nii.gz,10.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004440_sub-45.nii.gz,10.0
+/data/lautaro/quasiraw/PT030_OpenNeuro_ds004440_sub-47.nii.gz,10.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004466_sub-074.nii.gz,48.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004469_sub-07.nii.gz,42.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004470_sub-05.nii.gz,36.0
@@ -10888,10 +10879,7 @@ Path,Age
 /data/lautaro/quasiraw/PT036_Yale_HighRes_sub-025.nii.gz,31.0
 /data/lautaro/quasiraw/PT036_Yale_HighRes_sub-026.nii.gz,33.0
 /data/lautaro/quasiraw/PT036_Yale_HighRes_sub-027.nii.gz,38.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-10.nii.gz,32.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-11.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-20.nii.gz,35.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-21.nii.gz,36.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005266_sub-30.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005295_sub-17.nii.gz,38.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005341_sub-07.nii.gz,30.0
@@ -10959,11 +10947,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004697_sub-74.nii.gz,7.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004697_sub-75.nii.gz,8.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-27.nii.gz,76.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-30.nii.gz,62.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-31.nii.gz,30.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-32.nii.gz,62.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-33.nii.gz,72.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-34.nii.gz,56.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004996_sub-01.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004996_sub-03.nii.gz,39.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004996_sub-04.nii.gz,33.0
@@ -11206,7 +11189,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003653_sub-80.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003653_sub-81.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003653_sub-83.nii.gz,31.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds003684_sub-14.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003684_sub-15.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004169_sub-1110.nii.gz,16.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004169_sub-1111.nii.gz,12.0
@@ -11355,7 +11337,7 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004892_sub-07.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004928_sub-07.nii.gz,69.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004956_sub-05.nii.gz,36.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-04.nii.gz,68.0
+/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-09.nii.gz,38.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-26.nii.gz,63.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005050_sub-17.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005123_sub-013.nii.gz,48.0
@@ -11411,7 +11393,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004808_sub-16.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004808_sub-23.nii.gz,34.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004815_sub-01.nii.gz,31.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004815_sub-03.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004815_sub-07.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004837_sub-08.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004837_sub-10.nii.gz,34.0
@@ -11496,8 +11477,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002236_sub-76.nii.gz,14.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002236_sub-77.nii.gz,10.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002236_sub-78.nii.gz,8.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds003192_sub-05.nii.gz,40.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds003192_sub-06.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003233_sub-24.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003233_sub-25.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003242_sub-13.nii.gz,38.0
@@ -12044,7 +12023,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005531_sub-03.nii.gz,37.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005551_sub-07.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005551_sub-10.nii.gz,32.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005551_sub-11.nii.gz,35.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005551_sub-24.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001748_sub-51.nii.gz,15.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001748_sub-52.nii.gz,15.0
@@ -12642,7 +12620,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-262.nii.gz,71.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-263.nii.gz,67.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-264.nii.gz,64.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-265.nii.gz,67.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-266.nii.gz,66.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-267.nii.gz,61.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003592_sub-268.nii.gz,75.0
@@ -13333,7 +13310,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002748_sub-65.nii.gz,37.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002748_sub-66.nii.gz,43.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds002748_sub-67.nii.gz,34.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-13.nii.gz,39.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-14.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-15.nii.gz,35.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds006040_sub-18.nii.gz,41.0
@@ -13950,7 +13926,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001928_sub-38.nii.gz,61.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001928_sub-39.nii.gz,44.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001928_sub-40.nii.gz,70.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds001942_sub-04.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005684_sub-26.nii.gz,54.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005684_sub-28.nii.gz,53.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005684_sub-29.nii.gz,43.0
@@ -14515,7 +14490,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-096.nii.gz,54.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-097.nii.gz,67.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-098.nii.gz,62.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-099.nii.gz,79.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-100.nii.gz,69.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003831_sub-26.nii.gz,54.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003831_sub-28.nii.gz,47.0
@@ -14657,7 +14631,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004917_sub-47.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004917_sub-49.nii.gz,30.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004928_sub-01.nii.gz,35.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004928_sub-02.nii.gz,34.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004928_sub-03.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds000102_sub-25.nii.gz,34.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds000102_sub-26.nii.gz,32.0
@@ -14731,7 +14704,7 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005237_sub-071.nii.gz,43.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005237_sub-170.nii.gz,33.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005256_sub-026.nii.gz,31.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-07.nii.gz,32.0
+/data/lautaro/quasiraw/PT030_OpenNeuro_ds005264_sub-10.nii.gz,32.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-041.nii.gz,10.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-106.nii.gz,34.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005366_sub-126.nii.gz,74.0
@@ -14814,19 +14787,13 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005874_sub-29.nii.gz,51.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005884_sub-08.nii.gz,56.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005892_sub-07.nii.gz,85.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-05.nii.gz,69.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-07.nii.gz,37.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-09.nii.gz,38.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-11.nii.gz,54.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-13.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-14.nii.gz,42.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-15.nii.gz,41.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-16.nii.gz,70.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-17.nii.gz,35.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-18.nii.gz,50.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-20.nii.gz,67.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-21.nii.gz,68.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-22.nii.gz,47.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds004958_sub-25.nii.gz,40.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001894_sub-039.nii.gz,10.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds001894_sub-040.nii.gz,11.0
@@ -15322,7 +15289,6 @@ Path,Age
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003138_sub-11.nii.gz,36.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003138_sub-46.nii.gz,31.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds003176_sub-22.nii.gz,34.0
-/data/lautaro/quasiraw/PT030_OpenNeuro_ds003192_sub-03.nii.gz,37.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005752_sub-005.nii.gz,54.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005752_sub-006.nii.gz,49.0
 /data/lautaro/quasiraw/PT030_OpenNeuro_ds005752_sub-008.nii.gz,39.0
