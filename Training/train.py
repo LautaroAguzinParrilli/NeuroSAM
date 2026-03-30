@@ -1,4 +1,3 @@
-
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -17,11 +16,13 @@ from sklearn.model_selection import train_test_split
 if __name__ == "__main__":
 
 # -------- data --------
-    df = pd.read_csv("training_data.csv")  # Cambia la ruta al archivo CSV
+    df = pd.read_csv("training_data.csv") 
+    test_df = pd.read_csv("ext_test_data.csv")  # external testing 
 
-    # Separar en train (80%), val (10%) y test (10%)
-    train_df, temp_df = train_test_split(df, test_size=0.2, random_state=42)
-    val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
+    # Separar en train (90%), val (10%) 
+    train_df, val_df = train_test_split(df, test_size=0.1, random_state=42)
+
+    #val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42) #training on full database and testing on externals
 
     # Extrae las listas de rutas y edades para cada set
     train_imgs = train_df["Path"].tolist()
@@ -67,10 +68,10 @@ if __name__ == "__main__":
     )
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True)
     model.train()
-    num_epochs = 130
+    num_epochs = 250
 
     # Early stopping params
-    patience = 15  # Número de épocas sin mejora para detener
+    patience = 23  # Número de épocas sin mejora para detener
     best_val_loss = float('inf')
     epochs_no_improve = 0
     best_model_state = None
@@ -172,5 +173,4 @@ if __name__ == "__main__":
 
     print(f"Test Loss (MSE): {test_loss:.3f}")
     print(f"Test MAE: {mae:.3f}")
-
     

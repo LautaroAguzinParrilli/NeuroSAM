@@ -9,10 +9,10 @@ def build_vit3d():
         image_size = (176, 208, 176),          # image size
         patch_size = 16,     # image patch size
         num_classes = 1,
-        dim = 1024,
-        depth = 6,
-        heads = 8,
-        mlp_dim = 2048,
+        dim = 512, #antes era 1024
+        depth = 4, #antes era 6
+        heads = 6, #antes era 8
+        mlp_dim = 1024, #antes era 2048
         dropout=0.1,
         emb_dropout=0.1
     )
