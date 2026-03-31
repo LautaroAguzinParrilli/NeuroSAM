@@ -4,15 +4,16 @@ import nibabel as nib
 import numpy as np
 
 class MRIDataset(Dataset):
-    def __init__(self, img_paths, ages, target_shape=(176, 208, 176)):
+
+    def __init__(self, img_paths, ages, target_shape=(176, 208, 176)): #inicializacion de la clase dataset
         self.img_paths = img_paths
         self.ages = ages
         self.target_shape = target_shape
 
-    def __len__(self):
+    def __len__(self): #devuelve el numero de muestras en el dataset
         return len(self.img_paths)
 
-    def crop_center(self, img, target_shape):
+    def crop_center(self, img, target_shape): #elimino los bordes par poder tener ptches de 16*16*16
         d, h, w = img.shape
         td, th, tw = target_shape
         start_d = (d - td) // 2
@@ -20,7 +21,8 @@ class MRIDataset(Dataset):
         start_w = (w - tw) // 2
         return img[start_d:start_d+td, start_h:start_h+th, start_w:start_w+tw]
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx): #devuelve una muestra del dataset
+
         img = nib.load(self.img_paths[idx]).get_fdata()
         img = img.astype(np.float32)
 

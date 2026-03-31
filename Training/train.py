@@ -66,12 +66,13 @@ if __name__ == "__main__":
         lr=1e-4,
         weight_decay=1e-4 #para penalizar pesos grandes y evitar overfitting
     )
+
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True)
     model.train()
     num_epochs = 250 #numero de epocas
 
     # Early stopping params
-    patience = 23  # Número de épocas sin mejora para detener
+    patience = 25  # Número de épocas sin mejora para detener
     best_val_loss = float('inf')
     epochs_no_improve = 0
     best_model_state = None
