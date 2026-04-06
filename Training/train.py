@@ -60,7 +60,7 @@ if __name__ == "__main__":
     model = torch.nn.DataParallel(build_vit3d()).to(device)
     print(device)
 # -------- training --------
-    criterion = nn.MSELoss()
+    criterion = nn.SmoothL1Loss()
     optimizer = torch.optim.AdamW(
         model.parameters(),  
         lr=1e-4,
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     num_epochs = 250
 
     # Early stopping params
-    patience = 23  # Número de épocas sin mejora para detener
+    patience = 25  # Número de épocas sin mejora para detener
     best_val_loss = float('inf')
     epochs_no_improve = 0
     best_model_state = None

@@ -20,5 +20,5 @@ batch_size: 16, optimizer: AdamW, loss: MSE, lr: 1e-4 (scheduler=cosine), split:
 Model 7: MAE=4.41 (??????)
 same as 5 but patience=15 instead of 20 and JUK and RRIB not included on training
 
-model 8: MAE=
-the same but simplified model and not using the paper's datasets, now training on the whole database (balanced with less people between 20 and 24 years)and testing with externals
+model 8: MAE= 6.3
+the same but simplified model (less learnable parameters) and not using the paper's datasets, now training on the whole database and testing with externals loss= smoothL1
