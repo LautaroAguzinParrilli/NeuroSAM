@@ -22,3 +22,6 @@ same as 5 but patience=15 instead of 20 and JUK and RRIB not included on trainin
 
 model 8: MAE= 6.3
 the same but simplified model (less learnable parameters) and not using the paper's datasets, now training on the whole database and testing with externals loss= smoothL1
+
+model 9: MAE= 6.5
+same model as model 8 but with the original size of learnable parameters, batch_size=8

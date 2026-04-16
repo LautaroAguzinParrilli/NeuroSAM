@@ -38,19 +38,19 @@ if __name__ == "__main__":
 
     train_loader = DataLoader(
         train_dataset,
-        batch_size=16,
+        batch_size=8,
         shuffle=True,
         num_workers=8
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=16,
+        batch_size=8,
         shuffle=False,
         num_workers=8
     )
     test_loader = DataLoader(
         test_dataset,
-        batch_size=16,
+        batch_size=8,
         shuffle=False,
         num_workers=8
     )
@@ -171,6 +171,6 @@ if __name__ == "__main__":
     all_ages = torch.cat(all_ages).numpy()
     mae = mean_absolute_error(all_ages, all_preds)
 
-    print(f"Test Loss (MSE): {test_loss:.3f}")
+    print(f"Test Loss (L1Smooth): {test_loss:.3f}")
     print(f"Test MAE: {mae:.3f}")
     
