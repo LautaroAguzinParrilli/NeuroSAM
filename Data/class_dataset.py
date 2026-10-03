@@ -21,7 +21,9 @@ class MRIDataset(Dataset):
         return img[start_d:start_d+td, start_h:start_h+th, start_w:start_w+tw]
 
     def __getitem__(self, idx):
-        img = nib.load(self.img_paths[idx]).get_fdata()
+        img_path = self.img_paths[idx]
+        nii = nib.load(img_path)
+        img = nii.get_fdata()
         img = img.astype(np.float32)
 
         # Crop central
@@ -34,4 +36,6 @@ class MRIDataset(Dataset):
         img = torch.tensor(img).unsqueeze(0)
 
         age = torch.tensor(self.ages[idx]).float()
-        return img, age
+        affine = torch.tensor(nii.affine).float()
+        
+        return img, age, affine, img_path

@@ -39,7 +39,7 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-
+'''
 class Attention(nn.Module):
     def __init__(self, dim, heads=8, dim_head=64, dropout=0.):
         super().__init__()
@@ -74,7 +74,165 @@ class Attention(nn.Module):
         out = rearrange(out, 'b h n d -> b n (h d)')
         out = self.to_out(out)
         return out
+'''
+class Attention(nn.Module):
 
+    def __init__(
+        self,
+        dim,
+        heads=8,
+        dim_head=64,
+        dropout=0.
+    ):
+        super().__init__()
+
+        inner_dim = dim_head * heads
+
+        self.heads = heads
+        self.scale = dim ** -0.5
+
+        self.to_qkv = nn.Linear(
+            dim,
+            inner_dim * 3,
+            bias=False
+        )
+
+        self.to_out = nn.Sequential(
+            nn.Linear(inner_dim, dim),
+            nn.Dropout(dropout)
+        )
+
+        # IMPORTANTÍSIMO
+        self.attention_map = None
+
+    def forward(self, x, mask=None):
+
+        b, n, _, h = *x.shape, self.heads
+
+        qkv = self.to_qkv(x).chunk(3, dim=-1)
+
+        q, k, v = map(
+            lambda t: rearrange(
+                t,
+                'b n (h d) -> b h n d',
+                h=h
+            ),
+            qkv
+        )
+
+        dots = torch.einsum(
+            'bhid,bhjd->bhij',
+            q,
+            k
+        ) * self.scale
+
+        mask_value = -torch.finfo(dots.dtype).max
+
+        if mask is not None:
+
+            mask = F.pad(
+                mask.flatten(1),
+                (1, 0),
+                value=True
+            )
+
+            mask = mask[:, None, :] * mask[:, :, None]
+
+            dots.masked_fill_(
+                ~mask,
+                mask_value
+            )
+
+            del mask
+
+        attn = dots.softmax(dim=-1)
+
+        # -------------------------------------------------
+        # GUARDAR ATTENTION MAP
+        # -------------------------------------------------
+
+        self.attention_map = attn.detach()
+
+        out = torch.einsum(
+            'bhij,bhjd->bhid',
+            attn,
+            v
+        )
+
+        out = rearrange(
+            out,
+            'b h n d -> b n (h d)'
+        )
+
+        out = self.to_out(out)
+
+        return out
+
+def compute_attention_rollout(
+    attentions,
+    discard_ratio=0.0
+):
+
+    device = attentions[0].device
+
+    num_tokens = attentions[0].size(-1)
+
+    result = torch.eye(num_tokens).to(device)
+
+    with torch.no_grad():
+
+        for attn in attentions:
+
+            # -------------------------------------------------
+            # Average heads
+            # -------------------------------------------------
+
+            attn_heads_fused = attn.mean(dim=1)
+
+            # -------------------------------------------------
+            # Remove low attentions (optional)
+            # -------------------------------------------------
+
+            flat = attn_heads_fused.view(
+                attn_heads_fused.size(0),
+                -1
+            )
+
+            _, indices = flat.topk(
+                int(flat.size(-1) * discard_ratio),
+                dim=-1,
+                largest=False
+            )
+
+            flat.scatter_(
+                1,
+                indices,
+                0
+            )
+
+            # -------------------------------------------------
+            # Add residual connection
+            # -------------------------------------------------
+
+            identity = torch.eye(
+                num_tokens
+            ).to(device)
+
+            a = attn_heads_fused + identity
+
+            # -------------------------------------------------
+            # Normalize
+            # -------------------------------------------------
+
+            a = a / a.sum(dim=-1, keepdim=True)
+
+            # -------------------------------------------------
+            # Recursive rollout
+            # -------------------------------------------------
+
+            result = torch.matmul(a, result)
+
+    return result
 
 class Transformer(nn.Module):
     def __init__(self, dim, depth, heads, dim_head, mlp_dim, dropout):

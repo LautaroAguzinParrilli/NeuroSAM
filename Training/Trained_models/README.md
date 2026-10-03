@@ -20,8 +20,17 @@ batch_size: 16, optimizer: AdamW, loss: MSE, lr: 1e-4 (scheduler=cosine), split:
 Model 7: MAE=4.41 (??????)
 same as 5 but patience=15 instead of 20 and JUK and RRIB not included on training
 
-model 8: MAE= 6.3
+model 8: ext MAE= 6.3
 the same but simplified model (less learnable parameters) and not using the paper's datasets, now training on the whole database and testing with externals loss= smoothL1
 
-model 9: MAE= 6.5
+model 9: ext MAE= 6.5
 same model as model 8 but with the original size of learnable parameters, batch_size=8
+
+model 10: int MAE=4.75 ext MAE=6.41
+same model as 8 but loss=MSE, also left a internal test split for validation
+
+model 11: int MAE= ext MAE=4.4
+SFCN, batch size = 8, loss=SmoothL1 
+
+model 12: int MAE= ext MAE=
+Same as 11 but without aomic (weird intensities) and nigerian clinic (bad quality)
