@@ -12,52 +12,26 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error
 
 # Para separar el DataFrame en train, val y test
-from sklearn.model_selection import train_test_split
 
-def ranking_bias_loss(y_pred, y_true, lambda_rank=0.2):
-    
-    mse = F.mse_loss(y_pred, y_true)
-    
-    error = y_pred - y_true
-    
-    # Calcular diferencias entre pares
-    age_diff   = y_true.unsqueeze(0) - y_true.unsqueeze(1)  # (batch, batch)
-    error_diff = error.unsqueeze(0) - error.unsqueeze(1)    # (batch, batch)
-    
-    # Penalizar cuando edad mayor → error menor (sesgo negativo)
-    # age_diff > 0 significa y_true[i] > y_true[j]
-    # error_diff < 0 significa error[i] < error[j] (incoherencia)
-    bias_matrix = torch.relu(-(age_diff * error_diff))
-    
-    rank_penalty = bias_matrix.mean()
-    
-    return mse + lambda_rank * rank_penalty
+
 
 if __name__ == "__main__":
 
 # -------- data --------
-    df = pd.read_csv("training_data.csv")
+    train_df = pd.read_csv("Nico_train_val/training_nico.csv")
+    val_df = pd.read_csv("Nico_train_val/val_nico.csv")
 
-    #filtrar a los que NO tienien la palabra "AOMIC" en la columna Path
-    df = df[~df['Path'].str.contains("AOMIC")] 
-    #test_df = pd.read_csv("ext_test_data.csv")  # external testing 
-
-    # Separar en train (90%), val (10%) 
-    train_df, val_df = train_test_split(df, test_size=0.15, random_state=42)
-
-    #val_df, test_df = train_test_split(temp_df, test_size=0.3, random_state=42) #training on full database and testing on externals
 
     # Extrae las listas de rutas y edades para cada set
     train_imgs = train_df["Path"].tolist()
     train_ages = train_df["Age"].tolist()
     val_imgs = val_df["Path"].tolist()
     val_ages = val_df["Age"].tolist()
-    #test_imgs = test_df["Path"].tolist()
-    #test_ages = test_df["Age"].tolist()
+    
 
-    train_dataset = MRIDataset(train_imgs, train_ages)
-    val_dataset = MRIDataset(val_imgs, val_ages)
-    #test_dataset = MRIDataset(test_imgs, test_ages)
+    train_dataset = MRIDataset(train_imgs, train_ages, mode='train', enable_aug=True)
+    val_dataset = MRIDataset(val_imgs, val_ages, mode='val')
+
 
     train_loader = DataLoader(
         train_dataset,
@@ -77,21 +51,19 @@ if __name__ == "__main__":
     #    shuffle=False,
     #    num_workers=8
     #)
-
 # -------- model --------
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = torch.nn.DataParallel(SFCN()).to(device)
     print(device)
 # -------- training --------
-    # Usamos ranking_bias_loss personalizada
-    # criterion = nn.MSELoss()
+   
     criterion = nn.SmoothL1Loss()  # Más robusta a outliers que MSE
     optimizer = torch.optim.AdamW(
         model.parameters(),  
         lr=1e-4,
         weight_decay=1e-4
     )
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, verbose=True, min_lr=1e-6)
     model.train()
     num_epochs = 250
 
@@ -115,7 +87,7 @@ if __name__ == "__main__":
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0.0
-        for imgs, ages in train_loader:
+        for imgs, ages, _, _ in train_loader:
             assert not torch.isnan(imgs).any(), "Hay NaN en las imágenes"
             assert not torch.isinf(imgs).any(), "Hay Inf en las imágenes"
             assert not torch.isnan(ages).any(), "Hay NaN en las edades"
@@ -137,7 +109,7 @@ if __name__ == "__main__":
         model.eval()
         val_loss = 0.0
         with torch.no_grad():
-            for imgs, ages in val_loader:
+            for imgs, ages, _, _ in val_loader:
                 imgs = imgs.to(device)
                 ages = ages.to(device).unsqueeze(1)
                 preds = model(imgs)
@@ -173,29 +145,29 @@ if __name__ == "__main__":
                 break
 
     plt.ioff()
-    plt.savefig("loss_plot.png")  
-    torch.save(model.state_dict(), 'model.pth')
+    plt.savefig("loss_plot_nico.png")  
+    torch.save(model.state_dict(), 'model_nico.pth')
 
     # -------- Evaluación en el set de test --------
-    model.eval()
-    test_loss = 0.0
-    all_preds = []
-    all_ages = []   
+    #model.eval()
+    #test_loss = 0.0
+    #all_preds = []
+    #all_ages = []   
     #with torch.no_grad():
-    #    for imgs, ages in test_loader:
+    #    for imgs, ages, _, _ in test_loader:
     #        imgs = imgs.to(device)
     #        ages = ages.to(device).unsqueeze(1)
     #        preds = model(imgs)
-    #        loss = ranking_bias_loss(preds, ages, lambda_rank=0.3)
+    #        loss = criterion(preds, ages)
     #        test_loss += loss.item() * imgs.size(0)
     #        all_preds.append(preds.cpu())
     #        all_ages.append(ages.cpu())
     #test_loss /= len(test_loader.dataset)
     # Calcular MAE
-    all_preds = torch.cat(all_preds).numpy()
-    all_ages = torch.cat(all_ages).numpy()
-    mae = mean_absolute_error(all_ages, all_preds)
+    ##all_preds = torch.cat(all_preds).numpy()
+    #all_ages = torch.cat(all_ages).numpy()
+    #mae = mean_absolute_error(all_ages, all_preds)
 
-    print(f"Test Loss (MSE): {test_loss:.3f}")
-    print(f"Test MAE: {mae:.3f}")
+    #print(f"Test Loss (MSE): {test_loss:.3f}")
+    #print(f"Test MAE: {mae:.3f}")
     
