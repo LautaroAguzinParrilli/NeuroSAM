@@ -34,3 +34,6 @@ SFCN, batch size = 8, loss=SmoothL1
 
 model 12: int MAE= ext MAE=
 Same as 11 but without aomic (weird intensities) and nigerian clinic (bad quality)
+
+Model Nico:
+Augmentation + data according to nico's paper
